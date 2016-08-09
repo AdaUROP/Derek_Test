@@ -22,5 +22,10 @@ public class MouseMoveCam : MonoBehaviour {
 		} else if (Input.GetKeyDown (KeyCode.D)) {
 			cam.transform.Translate (Vector3.right);
 		}
+
+		Vector3 vu = cam.WorldToViewportPoint (GameObject.Find ("fluttershy").transform.position);
+		if (vu.x > 0 && vu.x < 1 && vu.y > 0 && vu.y < 1 && vu.z > 0) {
+			GameObject.Find("Audio Source").SendMessage ("script00");
+		}
 	}
 }
