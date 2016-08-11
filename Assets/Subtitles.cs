@@ -19,7 +19,7 @@ public class Subtitles : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (display) {
-			GetComponent<Text> ().text = "This is Fluttershy, the most introverted pony in all of Equestria.";
+			GetComponent<Text> ().text = "這是柔柔。柔柔是小馬國最羞答答的小馬。";
 			if (!GameObject.Find ("Audio Source").GetComponent<AudioSource> ().isPlaying) {
 				display = false;
 			}
