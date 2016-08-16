@@ -12,7 +12,7 @@ public class Subtitles : MonoBehaviour {
 		GetComponent<Text> ().text = "";
 	}
 
-	void displayScript00() {
+	public void displayScript00() {
 		display = true;
 	}
 
