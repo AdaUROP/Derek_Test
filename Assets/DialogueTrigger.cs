@@ -28,7 +28,7 @@ public class DialogueTrigger : MonoBehaviour {
 			GetComponent<AudioSource> ().Play ();
 			print ("sending");
             //GameObject.Find ("Text").GetComponent<Text> ().SendMessage ("displayScript00");
-            txt.GetComponent<Text>().SendMessage("displayScript00");
+            txt.SendMessage("displayScript00");
 		}
 	}
 }
