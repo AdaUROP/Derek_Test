@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PonyCome : MonoBehaviour {
 	bool move = false;
+
+    public Camera maincam;
 	// Use this for initialization
 	void Start () {
 	
@@ -19,10 +21,10 @@ public class PonyCome : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (move) {
-			GameObject.Find ("fluttershy").transform.rotation = Quaternion.LookRotation (-GameObject.Find ("Camera").transform.forward);
+			GameObject.Find ("fluttershy").transform.rotation = Quaternion.LookRotation (-maincam.transform.forward);
 			GameObject.Find ("fluttershy").transform.Translate (Vector3.forward);
 		}
-		if (Vector3.Distance (GameObject.Find ("fluttershy").transform.position, GameObject.Find ("Camera").transform.position) == 1) {
+		if (Vector3.Distance (GameObject.Find ("fluttershy").transform.position, maincam.transform.position) == 1) {
 			move = false;
 		}
 	}
