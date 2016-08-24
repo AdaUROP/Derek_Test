@@ -27,5 +27,11 @@ public class MouseMoveCam : MonoBehaviour {
 		if (vu.x > 0 && vu.x < 1 && vu.y > 0 && vu.y < 1 && vu.z > 0) {
 			GameObject.Find("Audio Source").SendMessage ("script00");
 		}
+
+		vu = cam.WorldToViewportPoint (GameObject.Find ("SunShapeBlendTest").transform.position);
+		if (vu.x > 0 && vu.x < 1 && vu.y > 0 && vu.y < 1 && vu.z > 0) {
+			GameObject.Find ("SunShapeBlendTest").SendMessage ("frown");
+		}
+		else GameObject.Find ("SunShapeBlendTest").SendMessage ("unfrown");
 	}
 }

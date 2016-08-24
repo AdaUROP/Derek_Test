@@ -40,7 +40,6 @@ public class Grabber : MonoBehaviour {
 			if (grabbedObject == null) {
 				if (currentObject != null) {
 					grabbedObject = currentObject;
-
 					// If object had a rigidbody, grabbed save the rigidbody's kinematic state
 					// so it can be restored on release of the object
 					Rigidbody body = null;
