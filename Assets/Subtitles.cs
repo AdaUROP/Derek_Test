@@ -5,6 +5,8 @@ using System.Collections;
 
 public class Subtitles : MonoBehaviour {
 
+	public bool onOff;
+
 	bool display = false;
 
 	// Use this for initialization
@@ -18,13 +20,15 @@ public class Subtitles : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (display) {
-			GetComponent<TextMesh> ().text = "這是柔柔。柔柔是小馬國最羞答答的小馬。";
-			if (!GameObject.Find ("Audio Source").GetComponent<AudioSource> ().isPlaying) {
-				display = false;
+		if (onOff) {
+			if (display) {
+				GetComponent<TextMesh> ().text = "這是柔柔。柔柔是小馬國最羞答答的小馬。";
+				if (!GameObject.Find ("Audio Source").GetComponent<AudioSource> ().isPlaying) {
+					display = false;
+				}
+			} else {
+				GetComponent<TextMesh> ().text = "";
 			}
-		} else {
-			GetComponent<TextMesh> ().text = "";
 		}
 	}
 }
