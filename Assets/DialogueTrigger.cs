@@ -13,10 +13,7 @@ public class DialogueTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
         Vector3 vu = mainCam.WorldToViewportPoint(GameObject.Find("fluttershy").transform.position);
-        Debug.Log(vu);
         if (vu.x > 0 && vu.x < 1 && vu.y > 0 && vu.y < 1 && vu.z > 0)
         {
             GameObject.Find("Audio Source").SendMessage("script00");
@@ -26,9 +23,7 @@ public class DialogueTrigger : MonoBehaviour {
 	public void script00 () {
 		if (!GetComponent<AudioSource> ().isPlaying) {
 			GetComponent<AudioSource> ().Play ();
-			print ("sending");
-            //GameObject.Find ("Text").GetComponent<Text> ().SendMessage ("displayScript00");
-            txt.SendMessage("displayScript00");
+			txt.SendMessage("displayScript", new SubtitleParams("這是柔柔。柔柔是小馬國最羞答答的小馬。",(int)( GetComponent<AudioSource>().clip.length * (1f/Time.deltaTime))));
 		}
 	}
 }

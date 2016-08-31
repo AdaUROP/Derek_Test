@@ -5,29 +5,38 @@ using System.Collections;
 
 public class Subtitles : MonoBehaviour {
 
-	public bool onOff;
+	public bool onOff; // Toggle subtitles
 
+	string text; // Subtitle text
 	bool display = false;
+	int frames = 0;
+	TextMesh textMesh;
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<TextMesh> ().text = "";
+		textMesh = GetComponent<TextMesh> ();
+		textMesh.text = "";
+
 	}
 
-	public void displayScript00() {
+	// Sets subtitle text
+	public void displayScript(SubtitleParams ps) {
 		display = true;
+		this.text = ps.getText();
+		this.frames = ps.getFrames();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (onOff) {
 			if (display) {
-				GetComponent<TextMesh> ().text = "這是柔柔。柔柔是小馬國最羞答答的小馬。";
-				if (!GameObject.Find ("Audio Source").GetComponent<AudioSource> ().isPlaying) {
+				textMesh.text = this.text;
+				frames--;
+				if (frames == 0) { // If audio is playing
 					display = false;
 				}
 			} else {
-				GetComponent<TextMesh> ().text = "";
+				textMesh.text = "";
 			}
 		}
 	}

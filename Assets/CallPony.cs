@@ -29,7 +29,6 @@ public class CallPony : MonoBehaviour {
 		*/
 
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			print("sending");
 			pony.SendMessage ("come");
 		}
 	}
