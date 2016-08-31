@@ -5,10 +5,9 @@ public class Throwable : MonoBehaviour {
 
 	Vector3 one;
 	Vector3 two;
-	Vector3 three;
 	bool grabbed;
 
-	int deltaFrames = 20;
+	int deltaFrames = 10;
 	int counter = 0;
 
 	public Camera cam;
@@ -18,7 +17,6 @@ public class Throwable : MonoBehaviour {
 	void Start () {
 		one = new Vector3 ();
 		two = new Vector3 ();
-		three = new Vector3 ();
 		grabbed = false;
 	}
 
@@ -46,7 +44,9 @@ public class Throwable : MonoBehaviour {
 			print ("Yay");
 		} else if (Input.anyKeyDown && grabbed) {
 			grabbed = false;
-			this.transform.forward = -one + two;
+			this.transform.forward = two - one;
+			this.transform.forward = new Vector3(this.transform.forward.x, this.transform.forward.y, 0);
+			print (this.transform.forward);
 		}
 	}
 }
