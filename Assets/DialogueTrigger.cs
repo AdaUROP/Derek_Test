@@ -13,11 +13,7 @@ public class DialogueTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 vu = mainCam.WorldToViewportPoint(GameObject.Find("fluttershy").transform.position);
-        if (vu.x > 0 && vu.x < 1 && vu.y > 0 && vu.y < 1 && vu.z > 0)
-        {
-            GameObject.Find("Audio Source").SendMessage("script00");
-        }
+        
     }
 
 	public void script00 () {
